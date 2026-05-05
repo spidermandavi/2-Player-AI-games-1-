@@ -2,36 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Modular AI Game Platform</title>
-  <link rel="stylesheet" href="main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modular 2-Player AI Platform</title>
+  <link rel="stylesheet" href="./main.css" />
 </head>
 <body>
-
   <div id="app">
-
-    <header>
-      <h1>AI Game Platform</h1>
-
-      <div class="controls">
-        <select id="gameSelect"></select>
-
-        <select id="difficultySelect">
-          <option value="1">Easy</option>
-          <option value="2" selected>Medium</option>
-          <option value="3">Hard</option>
-          <option value="4">Insane</option>
-        </select>
-
-        <button id="loadGameBtn">Load Game</button>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Modular Game AI Platform</p>
+        <h1>Play 2-player games against shared AI levels</h1>
       </div>
+      <div class="status-pill" id="appStatus">Ready</div>
     </header>
 
-    <main>
-      <div id="gameContainer">Select a game to start</div>
-    </main>
+    <main class="layout">
+      <aside class="panel sidebar">
+        <section class="section">
+          <h2>Game selector</h2>
+          <div id="gameSelector" class="selector-list"></div>
+        </section>
 
+        <section class="section">
+          <h2>AI difficulty</h2>
+          <label class="field">
+            <span>Choose level</span>
+            <select id="difficultySelect">
+              <option value="easy">Easy</option>
+              <option value="normal" selected>Normal</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="section">
+          <h2>Architecture notes</h2>
+          <p class="muted">
+            Every future game should implement the shared interface documented in
+            <code>engine/ai.js</code> and can be registered in <code>config/gamesList.js</code>.
+          </p>
+        </section>
+      </aside>
+
+      <section class="panel main-panel">
+        <div class="section">
+          <div class="game-header">
+            <div>
+              <p class="eyebrow">Current game</p>
+              <h2 id="gameTitle">Loading...</h2>
+              <p id="gameDescription" class="muted"></p>
+            </div>
+            <div class="small-card">
+              <div class="small-card-label">Suggested next step</div>
+              <div id="gameHint">Select a game to begin.</div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section">
+          <div id="gameArea" class="game-area">
+            <div class="placeholder-card">
+              <h3>Game preview</h3>
+              <p>This is a placeholder space for the selected game UI.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section info-grid">
+          <div class="info-card">
+            <h3>Shared AI</h3>
+            <p>One engine powers every game with easy, normal, and hard settings.</p>
+          </div>
+          <div class="info-card">
+            <h3>Modular loading</h3>
+            <p>Games are listed centrally and can later be swapped in without changing the shell.</p>
+          </div>
+          <div class="info-card">
+            <h3>Future-ready</h3>
+            <p>Each game folder already has game, UI, and style placeholders for expansion.</p>
+          </div>
+        </section>
+      </section>
+    </main>
   </div>
 
-  <script type="module" src="main.js"></script>
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
