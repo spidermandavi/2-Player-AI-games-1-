@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modular AI Game Platform</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <header>
+      <h1>AI Game Platform</h1>
+
+      <div class="controls">
+        <select id="gameSelect"></select>
+
+        <select id="difficultySelect">
+          <option value="1">Easy</option>
+          <option value="2" selected>Medium</option>
+          <option value="3">Hard</option>
+          <option value="4">Insane</option>
+        </select>
+
+        <button id="loadGameBtn">Load Game</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="gameContainer">Select a game to start</div>
+    </main>
+
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
